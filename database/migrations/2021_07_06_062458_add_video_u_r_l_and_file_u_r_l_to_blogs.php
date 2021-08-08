@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class AddVideoURLAndFileURLToBlogs extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('blogs', function (Blueprint $table) {
+            //
+            $table->string('videoURL');
+            $table->string('fileURL');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('blogs', function (Blueprint $table) {
+
+                $table->dropColumn('videoURL');
+                $table->dropColumn('fileURL');
+        });
+    }
+}
